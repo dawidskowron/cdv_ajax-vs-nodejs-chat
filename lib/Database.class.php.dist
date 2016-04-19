@@ -1,0 +1,29 @@
+<?php 
+class Database {
+	
+	private static $instance;
+	private static $dbDsn = 'mysql:host=localhost;dbname=database;port=3306;charset=utf8';
+	private static $dbUser = 'user';
+	private static $dbPassword = 'password';
+	
+	private function __construct() {}
+	
+	public static function getInstance() {
+		 
+		if(!self::$instance){
+			try {
+				self::$instance = new PDO(self::$dbDsn, self::$dbUser, self::$dbPassword, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+				self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				self::$instance->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			}
+			catch (PDOException $e)
+			{
+				die('Cannot connect to Database server');
+			}
+		}
+		 
+		return self::$instance;
+		 
+	}	
+}
+?>

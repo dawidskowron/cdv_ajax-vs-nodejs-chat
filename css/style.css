@@ -1,0 +1,15 @@
+.loader {
+	width:20px;
+	height:26px;
+	background-image:url('/dist/img/loader.gif');
+	background-repeat:no-repeat;	
+	background-position:center center;
+	display:none;
+}
+
+.box-header .loader {
+	position:absolute;
+	width:100%;
+	left:0;
+	top:8px;	
+}
