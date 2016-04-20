@@ -128,7 +128,7 @@ $(function(){
 	'</div>';
 	
 	var id_user = null;
-	var socket = io('http://chat.mynote.pl:3001');
+	var socket = io('http://chat.mynote.pl:3002');
 	
 	$('.nodejs .nodeMessageForm').submit(function(){
 	var message = $(this).find('.message');
